@@ -22,9 +22,12 @@ public class PDFEditTest {
         PDDocument pd;
         BufferedWriter wr;
         try {
+                String outputPath = "rayani.txt";
                 File input = new File("C:\\Users\\Administrator\\Desktop\\FA Feb 16.pdf");  // The PDF file from where you would like to extract
-                File output = new File("C:\\Users\\Administrator\\Desktop\\rayani.txt"); // The text file where you are going to store the extracted data
+                File output = new File(outputPath); // The text file where you are going to store the extracted data
                 pd = PDDocument.load(input);
+                
+                
                 System.out.println(pd.getNumberOfPages());
                 System.out.println(pd.isEncrypted());
                 //pd.save("CopyOfInvoice.pdf"); // Creates a copy called "CopyOfInvoice.pdf"
@@ -40,10 +43,14 @@ public class PDFEditTest {
                 }
                // I use close() to flush the stream.
                wr.close();
+               
+               TextParser a = new TextParser(outputPath);
+               a.getUserDetail("");
         } catch (Exception e){
                 e.printStackTrace();
                } 
      
     }
+    
     
 }
